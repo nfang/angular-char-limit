@@ -1,0 +1,15 @@
+{
+  "name": "angular-char-limit",
+  "version": "0.0.1",
+  "description": "",
+  "license": "MIT",
+  "authors": [
+    "Nathan Fang <nyyrikkifang@gmail.com>"
+  ],
+  "dependencies": {
+
+  },
+  "devDependencies": {
+
+  },
+}
