@@ -49,7 +49,12 @@ angular.module("angular-char-limit", [])
           }
         }
       }
-      return { len: len, limit: this.limit, state: state };
+      return { 
+        remaining: (this.limit - len), 
+        progress: len / this.limit,
+        limit: this.limit, 
+        state: state 
+      };
     }
 
     CharLimitObserver.prototype.update = function (text) {
@@ -70,17 +75,11 @@ angular.module("angular-char-limit", [])
       },
 
       controller: function ($scope) {
-        var curState = "";
-
         $scope.notify = function () {
           var stateObj = $scope.observer.getState();
-
-          if (curState !== stateObj.state) {
-            curState = stateObj.state;
-            $scope.$apply(function () {
-              $scope.clStateChanged({ e: stateObj });
-            });
-          }
+          $scope.$apply(function () {
+            $scope.clStateChanged({ e: stateObj });
+          });
         }
       },
       

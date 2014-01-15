@@ -40,5 +40,8 @@ describe("CharLimitObserver", function () {
     inject(function (CharLimitObserver) {
       var observer = new CharLimitObserver("text", 10);
       expect(observer.getState().state).toBe("safe");
+      expect(observer.getState().remaining).toBe(6);
+      expect(observer.getState().progress).toBe(0.4);
+      expect(observer.getState().limit).toBe(10);
     }));
 });
